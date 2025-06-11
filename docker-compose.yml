@@ -1,10 +1,10 @@
 services:
   database:
     image: bitnami/postgresql:17
-    container_name: babershop_db
+    container_name: barbershop_db
     environment:
       - POSTGRESQL_USERNAME=root
       - POSTGRESQL_PASSWORD=docker
-      - POSTGRESQL_DATABASE=babershop
+      - POSTGRESQL_DATABASE=barbershop
     ports:
       - 5432:5432
