@@ -4,9 +4,12 @@ import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import br.com.gabriel.barbershop_appointment_api.models.Customer;
 
+@Repository
 public interface CustomerRepository extends JpaRepository<Customer, UUID> {
-    Optional<Customer> findByEmail(String email);
+    Optional<Customer> findByCustomerEmail(String email);
+    Optional<Customer> findByCustomerId(UUID customerId);
 }
