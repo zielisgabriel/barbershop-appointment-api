@@ -10,9 +10,11 @@ import lombok.Data;
 @Data
 public class Customer_HairCutDTO {
     @org.hibernate.validator.constraints.UUID
-    private UUID customer_id;
+    private UUID customerId;
+
     @org.hibernate.validator.constraints.UUID
-    private UUID haircut_id;
+    private UUID haircutId;
+    
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private LocalDateTime appointmentDateTime;
 }

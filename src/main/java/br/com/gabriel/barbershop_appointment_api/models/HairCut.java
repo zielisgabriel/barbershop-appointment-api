@@ -3,6 +3,7 @@ package br.com.gabriel.barbershop_appointment_api.models;
 import java.math.BigDecimal;
 import java.util.UUID;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -16,8 +17,15 @@ import lombok.Data;
 public class HairCut {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID haircut_id;
-    private String haircut_name;
-    private BigDecimal haircut_price;
-    private String haircut_description;
+    @Column(name = "haircut_id")
+    private UUID hairCutId;
+
+    @Column(name = "haircut_name", nullable = false, unique = true)
+    private String hairCutName;
+
+    @Column(name = "haircut_price", nullable = false)
+    private BigDecimal hairCutPrice;
+
+    @Column(name = "haircut_description", nullable = false)
+    private String hairCutDescription;
 }

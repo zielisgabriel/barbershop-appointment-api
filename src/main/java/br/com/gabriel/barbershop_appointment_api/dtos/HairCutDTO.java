@@ -9,12 +9,12 @@ import lombok.Data;
 
 @Data
 public class HairCutDTO {
-    String haircut_name;
+    String hairCutName;
 
     @Min(value = 0, message = "O preço deve ser maior ou igual a zero")
     @Max(value = 1000, message = "O preço deve ser menor ou igual a 1000")
-    BigDecimal haircut_price;
+    BigDecimal hairCutPrice;
 
     @Size(min = 3, max = 100, message = "A descrição deve ter entre 3 e 100 caracteres")
-    String haircut_description;
+    String hairCutDescription;
 }

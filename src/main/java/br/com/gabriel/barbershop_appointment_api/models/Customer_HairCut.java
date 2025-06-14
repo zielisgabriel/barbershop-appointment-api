@@ -21,20 +21,21 @@ import lombok.Data;
 public class Customer_HairCut {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID customer_haircut_id;
+    @Column(name = "customer_haircut_id", nullable = false)
+    private UUID customerHaircutId;
 
     @ManyToOne
-    @JoinColumn(name = "customer_id")
+    @JoinColumn(name = "customer_id", nullable = false)
     private Customer customer;
 
     @ManyToOne
-    @JoinColumn(name = "haircut_id")
+    @JoinColumn(name = "haircut_id", nullable = false)
     private HairCut haircut;
 
-    @Column(name = "created_at")
+    @Column(name = "created_at", nullable = false)
     @CreationTimestamp
     LocalDateTime createdAt;
 
-    @Column(name = "appointment_date_time")
+    @Column(name = "appointment_date_time", nullable = false)
     LocalDateTime appointmentDateTime;
 }
