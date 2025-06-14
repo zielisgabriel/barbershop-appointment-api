@@ -29,4 +29,26 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
 
         return new ResponseEntity<String>(responseJson, HttpStatus.NOT_FOUND);
     }
+
+    @ExceptionHandler(HairCutNotFoundException.class)
+    private ResponseEntity<String> hairCutNotFoundHandler(HairCutNotFoundException error) {
+        LocalDateTime currentDateTime = LocalDateTime.now();
+
+        String responseJson = String.format("{\"timestamp\": \"%s\", \"message\": \"%s\"}",
+            currentDateTime,
+            error.getMessage());
+
+            return new ResponseEntity<String>(responseJson, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(HairCutAlreadyExistsException.class)
+    private ResponseEntity<String> hairCutAlreadyExistsHandler(HairCutAlreadyExistsException error) {
+        LocalDateTime currentDateTime = LocalDateTime.now();
+
+        String responseJson = String.format("{\"timestamp\": \"%s\", \"message\": \"%s\"}",
+            currentDateTime,
+            error.getMessage());
+
+            return new ResponseEntity<String>(responseJson, HttpStatus.NOT_FOUND);
+    }
 }
