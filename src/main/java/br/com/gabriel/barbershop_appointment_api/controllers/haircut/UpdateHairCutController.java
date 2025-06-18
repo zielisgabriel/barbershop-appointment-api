@@ -1,4 +1,4 @@
-package br.com.gabriel.barbershop_appointment_api.controllers;
+package br.com.gabriel.barbershop_appointment_api.controllers.haircut;
 
 import java.util.UUID;
 
