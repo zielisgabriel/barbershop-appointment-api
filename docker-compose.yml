@@ -8,3 +8,21 @@ services:
       - POSTGRESQL_DATABASE=barbershop
     ports:
       - 5432:5432
+    networks:
+      - barbershop-network
+
+  api:
+    build:
+      context: .
+    container_name: barbershop-appointment
+    ports:
+      - 8080:8080
+    depends_on:
+      - database
+    restart: always
+    networks:
+      - barbershop-network
+
+networks:
+  barbershop-network:
+    driver: bridge
