@@ -3,8 +3,6 @@ package br.com.gabriel.barbershop_appointment_api.models;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-import org.hibernate.annotations.CreationTimestamp;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -32,10 +30,6 @@ public class Customer_HairCut {
     @JoinColumn(name = "haircut_id", nullable = false)
     private HairCut haircut;
 
-    @Column(name = "created_at", nullable = false)
-    @CreationTimestamp
-    LocalDateTime createdAt;
-
     @Column(name = "appointment_date_time", nullable = false)
-    LocalDateTime appointmentDateTime;
+    private LocalDateTime appointmentDateTime;
 }
