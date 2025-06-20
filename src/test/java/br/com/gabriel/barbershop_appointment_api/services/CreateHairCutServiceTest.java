@@ -21,6 +21,7 @@ import br.com.gabriel.barbershop_appointment_api.exceptions.HairCutAlreadyExists
 import br.com.gabriel.barbershop_appointment_api.mappers.HairCutMapper;
 import br.com.gabriel.barbershop_appointment_api.models.HairCut;
 import br.com.gabriel.barbershop_appointment_api.repositories.HairCutRepository;
+import br.com.gabriel.barbershop_appointment_api.services.haircut.CreateHairCutService;
 
 @ActiveProfiles("test")
 public class CreateHairCutServiceTest {
@@ -58,6 +59,7 @@ public class CreateHairCutServiceTest {
     }
 
     @Test
+    @DisplayName("Should throw exception when hair cut already exists")
     public void executeFailure() {
         HairCutDTO hairCutDTO = new HairCutDTO();
         hairCutDTO.setHairCutName("Corte 1");

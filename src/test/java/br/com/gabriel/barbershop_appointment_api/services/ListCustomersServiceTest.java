@@ -17,6 +17,7 @@ import org.springframework.test.context.ActiveProfiles;
 
 import br.com.gabriel.barbershop_appointment_api.models.Customer;
 import br.com.gabriel.barbershop_appointment_api.repositories.CustomerRepository;
+import br.com.gabriel.barbershop_appointment_api.services.customer.ListCustomersService;
 
 @ActiveProfiles("test")
 public class ListCustomersServiceTest {
@@ -37,12 +38,12 @@ public class ListCustomersServiceTest {
         Customer customer1 = new Customer();
         Customer customer2 = new Customer();
 
-        customer1.setCustomerId(UUID.randomUUID());
+        customer1.setCustomerId(UUID.fromString("3a3a3a3a-3a3a-3a3a-3a3a-3a3a3a3a3a3a"));
         customer1.setCustomerEmail("testemail1@email.com");
         customer1.setCustomerPassword("test1password123");
         customer1.setCustomerName("Test Name 1");
 
-        customer2.setCustomerId(UUID.randomUUID());
+        customer2.setCustomerId(UUID.fromString("4a4a4a4a-4a4a-4a4a-4a4a-4a4a4a4a4a4a"));
         customer2.setCustomerEmail("testemail2@email.com");
         customer2.setCustomerPassword("test2password123");
         customer2.setCustomerName("Test Name 2");
@@ -51,12 +52,12 @@ public class ListCustomersServiceTest {
         when(customerRepository.findAll()).thenReturn(customers);
         
         assertThat(this.listCustomersService.execute()).hasSize(2);
-        assertThat(this.listCustomersService.execute().get(0).getCustomerEmail())
-            .isEqualTo("testemail1@email.com");
+        assertThat(this.listCustomersService.execute().get(0).getCustomerId())
+            .isEqualTo(UUID.fromString("3a3a3a3a-3a3a-3a3a-3a3a-3a3a3a3a3a3a"));
         assertThat(this.listCustomersService.execute().get(0).getCustomerName())
             .isEqualTo("Test Name 1");
-        assertThat(this.listCustomersService.execute().get(1).getCustomerEmail())
-            .isEqualTo("testemail2@email.com");
+        assertThat(this.listCustomersService.execute().get(1).getCustomerId())
+            .isEqualTo(UUID.fromString("4a4a4a4a-4a4a-4a4a-4a4a-4a4a4a4a4a4a"));
         assertThat(this.listCustomersService.execute().get(1).getCustomerName())
             .isEqualTo("Test Name 2");
     }

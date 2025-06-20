@@ -20,6 +20,7 @@ import br.com.gabriel.barbershop_appointment_api.exceptions.UserNotFoundExceptio
 import br.com.gabriel.barbershop_appointment_api.mappers.CustomerMapper;
 import br.com.gabriel.barbershop_appointment_api.models.Customer;
 import br.com.gabriel.barbershop_appointment_api.repositories.CustomerRepository;
+import br.com.gabriel.barbershop_appointment_api.services.customer.DeleteCustomerService;
 
 @ActiveProfiles("test")
 public class DeleteCustomerServiceTest {
@@ -40,18 +41,19 @@ public class DeleteCustomerServiceTest {
     @Test
     @DisplayName("Should delete a customer")
     void executeSuccess() {
+        UUID uuid = UUID.fromString("3a3a3a3a-3a3a-3a3a-3a3a-3a3a3a3a3a3a");
         CustomerDTO customerDTO = new CustomerDTO();
         customerDTO.setCustomerEmail("testemail@email.com");
         customerDTO.setCustomerPassword("testpassword123");
         customerDTO.setCustomerName("Test Name");
         
         Customer customer = new Customer();
-        customer.setCustomerId(UUID.fromString("3a3a3a3a-3a3a-3a3a-3a3a-3a3a3a3a3a3a"));
+        customer.setCustomerId(uuid);
 
         when(this.customerMapper.map(customerDTO)).thenReturn(customer);
         when(this.customerRepository.findByCustomerId(customer.getCustomerId())).thenReturn(Optional.of(customer));
 
-        this.deleteCustomerService.execute(UUID.fromString("3a3a3a3a-3a3a-3a3a-3a3a-3a3a3a3a3a3a"));
+        this.deleteCustomerService.execute(uuid);
 
         verify(this.customerRepository).delete(customer);
     }
