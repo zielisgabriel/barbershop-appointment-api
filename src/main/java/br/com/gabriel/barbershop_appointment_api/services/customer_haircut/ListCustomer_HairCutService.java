@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
+import org.springframework.data.domain.Sort;
 
 import br.com.gabriel.barbershop_appointment_api.dtos.CustomerResponseDTO;
 import br.com.gabriel.barbershop_appointment_api.dtos.Customer_HairCutResponseDTO;
@@ -17,7 +18,7 @@ public class ListCustomer_HairCutService {
     private final Customer_HairCutRepository customer_HairCutRepository;
 
     public List<Customer_HairCutResponseDTO> execute() {
-        List<Customer_HairCut> customer_HairCuts = this.customer_HairCutRepository.findAll();
+        List<Customer_HairCut> customer_HairCuts = this.customer_HairCutRepository.findAll(Sort.by(Sort.Direction.ASC, "appointmentDateTime"));
         List<Customer_HairCutResponseDTO> customer_HairCutsModified = new ArrayList<Customer_HairCutResponseDTO>(); // TODO: renomear variável
 
         customer_HairCuts.forEach(customerHairCut -> {
