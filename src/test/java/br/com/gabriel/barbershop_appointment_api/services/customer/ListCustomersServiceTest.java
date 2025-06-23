@@ -1,4 +1,4 @@
-package br.com.gabriel.barbershop_appointment_api.services;
+package br.com.gabriel.barbershop_appointment_api.services.customer;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
@@ -17,7 +17,6 @@ import org.springframework.test.context.ActiveProfiles;
 
 import br.com.gabriel.barbershop_appointment_api.models.Customer;
 import br.com.gabriel.barbershop_appointment_api.repositories.CustomerRepository;
-import br.com.gabriel.barbershop_appointment_api.services.customer.ListCustomersService;
 
 @ActiveProfiles("test")
 public class ListCustomersServiceTest {

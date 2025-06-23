@@ -11,17 +11,18 @@ services:
     networks:
       - barbershop-network
 
-  api:
-    build:
-      context: .
-    container_name: barbershop-appointment
-    ports:
-      - 8080:8080
-    depends_on:
-      - database
-    restart: always
-    networks:
-      - barbershop-network
+
+  # api:
+  #   build:
+  #     context: .
+  #   container_name: barbershop-appointment
+  #   ports:
+  #     - 8080:8080
+  #   depends_on:
+  #     - database
+  #   restart: always
+  #   networks:
+  #     - barbershop-network
 
 networks:
   barbershop-network:

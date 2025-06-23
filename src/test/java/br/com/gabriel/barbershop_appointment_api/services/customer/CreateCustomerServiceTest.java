@@ -1,4 +1,4 @@
-package br.com.gabriel.barbershop_appointment_api.services;
+package br.com.gabriel.barbershop_appointment_api.services.customer;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.Mockito.verify;
@@ -19,8 +19,6 @@ import br.com.gabriel.barbershop_appointment_api.exceptions.UserAlreadyExistsExc
 import br.com.gabriel.barbershop_appointment_api.mappers.CustomerMapper;
 import br.com.gabriel.barbershop_appointment_api.models.Customer;
 import br.com.gabriel.barbershop_appointment_api.repositories.CustomerRepository;
-import br.com.gabriel.barbershop_appointment_api.services.customer.CreateCustomerService;
-
 
 @ActiveProfiles("test")
 public class CreateCustomerServiceTest {

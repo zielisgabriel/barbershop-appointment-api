@@ -1,4 +1,4 @@
-package br.com.gabriel.barbershop_appointment_api.services;
+package br.com.gabriel.barbershop_appointment_api.services.haircut;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.Mockito.verify;
@@ -21,7 +21,6 @@ import br.com.gabriel.barbershop_appointment_api.exceptions.HairCutAlreadyExists
 import br.com.gabriel.barbershop_appointment_api.mappers.HairCutMapper;
 import br.com.gabriel.barbershop_appointment_api.models.HairCut;
 import br.com.gabriel.barbershop_appointment_api.repositories.HairCutRepository;
-import br.com.gabriel.barbershop_appointment_api.services.haircut.CreateHairCutService;
 
 @ActiveProfiles("test")
 public class CreateHairCutServiceTest {
