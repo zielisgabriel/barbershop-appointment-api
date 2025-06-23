@@ -1,6 +1,5 @@
 package br.com.gabriel.barbershop_appointment_api.services.customer;
 
-import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.stereotype.Service;
@@ -17,13 +16,11 @@ public class UpdateCustomerNameAndEmailService {
     private final CustomerRepository customerRepository;
 
     public void execute(UUID customerID, CustomerDTO customerDTO) {
-        Optional<Customer> customer = this.customerRepository.findByCustomerId(customerID);
+        Customer customer = this.customerRepository
+            .findByCustomerId(customerID)
+            .orElseThrow(() -> new UserNotFoundException());
 
-        if (!customer.isPresent()) {
-            throw new UserNotFoundException();
-        }
-
-        Customer customerToUpdate = customer.get();
+        Customer customerToUpdate = customer;
         customerToUpdate.setCustomerEmail(customerDTO.getCustomerEmail());
         customerToUpdate.setCustomerName(customerDTO.getCustomerName());
         this.customerRepository.save(customerToUpdate);
