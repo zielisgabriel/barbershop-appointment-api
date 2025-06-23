@@ -139,4 +139,15 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
 
         return new ResponseEntity<String>(responseJson, HttpStatus.NOT_FOUND);
     }
+
+    @ExceptionHandler(AvailableTimeNotFoundException.class)
+    private ResponseEntity<String> availableTimeNotFoundExceptionHandler(AvailableTimeNotFoundException error) {
+        LocalDateTime currentDateTime = LocalDateTime.now();
+
+        String responseJson = String.format("{\"timestamp\": \"%s\", \"message\": \"%s\"}",
+            currentDateTime,
+            error.getMessage());
+
+        return new ResponseEntity<String>(responseJson, HttpStatus.NOT_FOUND);
+    }
 }
