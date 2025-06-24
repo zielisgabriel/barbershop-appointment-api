@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.context.ActiveProfiles;
 
 import br.com.gabriel.barbershop_appointment_api.domain.Customer;
@@ -26,10 +27,13 @@ public class CreateCustomerServiceTest {
     private CreateCustomerService createCustomerService;
 
     @Mock
+    private CustomerMapper customerMapper;
+
+    @Mock
     private CustomerRepository customerRepository;
 
     @Mock
-    private CustomerMapper customerMapper;
+    private PasswordEncoder passwordEncoder;
 
     @BeforeEach
     void setup() {
@@ -40,16 +44,14 @@ public class CreateCustomerServiceTest {
     @DisplayName("Should create a new customer")
     void executeSuccess() {
         CustomerDTO customerDTO = new CustomerDTO();
+        Customer customer = new Customer();
+
         customerDTO.setCustomerEmail("testemail@email.com");
         customerDTO.setCustomerName("Test Name");
         customerDTO.setCustomerPassword("testpassword123");
 
-        Customer customer = this.customerMapper.map(customerDTO);
-        
         when(this.customerMapper.map(customerDTO)).thenReturn(customer);
-        when(this.customerRepository.save(customer)).thenReturn(customer);
-
-        createCustomerService.execute(customerDTO);
+        this.createCustomerService.execute(customerDTO);
 
         verify(this.customerRepository).save(customer);
     }
