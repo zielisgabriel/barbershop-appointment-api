@@ -6,8 +6,8 @@ import java.util.UUID;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import br.com.gabriel.barbershop_appointment_api.models.Customer;
-import br.com.gabriel.barbershop_appointment_api.models.Customer_HairCut;
+import br.com.gabriel.barbershop_appointment_api.domain.Customer;
+import br.com.gabriel.barbershop_appointment_api.domain.Customer_HairCut;
 
 public interface Customer_HairCutRepository extends JpaRepository<Customer_HairCut, UUID> {
     Optional<Customer_HairCut> findByCustomerHaircutId(UUID customerHaircutId);

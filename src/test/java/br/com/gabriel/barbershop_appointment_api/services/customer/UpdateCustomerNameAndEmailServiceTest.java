@@ -15,8 +15,8 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.test.context.ActiveProfiles;
 
+import br.com.gabriel.barbershop_appointment_api.domain.Customer;
 import br.com.gabriel.barbershop_appointment_api.dtos.CustomerDTO;
-import br.com.gabriel.barbershop_appointment_api.models.Customer;
 import br.com.gabriel.barbershop_appointment_api.repositories.CustomerRepository;
 
 @ActiveProfiles("test")

@@ -5,6 +5,9 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
+import br.com.gabriel.barbershop_appointment_api.domain.Customer;
+import br.com.gabriel.barbershop_appointment_api.domain.Customer_HairCut;
+import br.com.gabriel.barbershop_appointment_api.domain.HairCut;
 import br.com.gabriel.barbershop_appointment_api.dtos.Customer_HairCutDTO;
 import br.com.gabriel.barbershop_appointment_api.exceptions.HairCutNotFoundException;
 import br.com.gabriel.barbershop_appointment_api.exceptions.InvalidDateTimeException;
@@ -13,9 +16,6 @@ import br.com.gabriel.barbershop_appointment_api.exceptions.UserAlreadyExistsInA
 import br.com.gabriel.barbershop_appointment_api.exceptions.CustomerAlreadyHasAppointmentException;
 import br.com.gabriel.barbershop_appointment_api.exceptions.UserNotFoundException;
 import br.com.gabriel.barbershop_appointment_api.mappers.Customer_HairCutMapper;
-import br.com.gabriel.barbershop_appointment_api.models.Customer;
-import br.com.gabriel.barbershop_appointment_api.models.Customer_HairCut;
-import br.com.gabriel.barbershop_appointment_api.models.HairCut;
 import br.com.gabriel.barbershop_appointment_api.repositories.AvailableTimeRepository;
 import br.com.gabriel.barbershop_appointment_api.repositories.CustomerRepository;
 import br.com.gabriel.barbershop_appointment_api.repositories.Customer_HairCutRepository;

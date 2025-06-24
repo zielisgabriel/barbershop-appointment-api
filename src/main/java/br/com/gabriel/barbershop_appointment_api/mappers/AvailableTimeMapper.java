@@ -2,8 +2,8 @@ package br.com.gabriel.barbershop_appointment_api.mappers;
 
 import org.springframework.stereotype.Component;
 
+import br.com.gabriel.barbershop_appointment_api.domain.AvailableTime;
 import br.com.gabriel.barbershop_appointment_api.dtos.AvailableTimeDTO;
-import br.com.gabriel.barbershop_appointment_api.models.AvailableTime;
 
 @Component
 public class AvailableTimeMapper {

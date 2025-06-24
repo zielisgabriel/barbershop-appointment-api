@@ -5,9 +5,9 @@ import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
+import br.com.gabriel.barbershop_appointment_api.domain.HairCut;
 import br.com.gabriel.barbershop_appointment_api.dtos.HairCutDTO;
 import br.com.gabriel.barbershop_appointment_api.exceptions.HairCutNotFoundException;
-import br.com.gabriel.barbershop_appointment_api.models.HairCut;
 import br.com.gabriel.barbershop_appointment_api.repositories.HairCutRepository;
 import lombok.RequiredArgsConstructor;
 

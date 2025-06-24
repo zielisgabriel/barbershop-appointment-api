@@ -4,9 +4,9 @@ import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
+import br.com.gabriel.barbershop_appointment_api.domain.Customer;
 import br.com.gabriel.barbershop_appointment_api.dtos.CustomerDTO;
 import br.com.gabriel.barbershop_appointment_api.exceptions.UserNotFoundException;
-import br.com.gabriel.barbershop_appointment_api.models.Customer;
 import br.com.gabriel.barbershop_appointment_api.repositories.CustomerRepository;
 import lombok.RequiredArgsConstructor;
 

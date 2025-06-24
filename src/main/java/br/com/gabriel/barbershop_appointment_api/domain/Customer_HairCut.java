@@ -1,4 +1,4 @@
-package br.com.gabriel.barbershop_appointment_api.models;
+package br.com.gabriel.barbershop_appointment_api.domain;
 
 import java.time.LocalDateTime;
 import java.util.UUID;

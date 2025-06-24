@@ -6,7 +6,7 @@ import java.util.UUID;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import br.com.gabriel.barbershop_appointment_api.models.AvailableTime;
+import br.com.gabriel.barbershop_appointment_api.domain.AvailableTime;
 
 public interface AvailableTimeRepository extends JpaRepository<AvailableTime, UUID> {
     Optional<AvailableTime> findByAvailableTimeId(UUID availableTimeId);

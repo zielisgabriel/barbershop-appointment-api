@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.gabriel.barbershop_appointment_api.models.HairCut;
+import br.com.gabriel.barbershop_appointment_api.domain.HairCut;
 import br.com.gabriel.barbershop_appointment_api.services.haircut.ListHairCutsService;
 import lombok.RequiredArgsConstructor;
 

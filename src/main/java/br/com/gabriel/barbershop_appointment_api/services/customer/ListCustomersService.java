@@ -5,8 +5,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import br.com.gabriel.barbershop_appointment_api.domain.Customer;
 import br.com.gabriel.barbershop_appointment_api.dtos.CustomerResponseDTO;
-import br.com.gabriel.barbershop_appointment_api.models.Customer;
 import br.com.gabriel.barbershop_appointment_api.repositories.CustomerRepository;
 import lombok.RequiredArgsConstructor;
 

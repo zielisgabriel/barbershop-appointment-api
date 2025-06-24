@@ -2,8 +2,8 @@ package br.com.gabriel.barbershop_appointment_api.mappers;
 
 import org.springframework.stereotype.Component;
 
+import br.com.gabriel.barbershop_appointment_api.domain.HairCut;
 import br.com.gabriel.barbershop_appointment_api.dtos.HairCutDTO;
-import br.com.gabriel.barbershop_appointment_api.models.HairCut;
 
 @Component
 public class HairCutMapper {

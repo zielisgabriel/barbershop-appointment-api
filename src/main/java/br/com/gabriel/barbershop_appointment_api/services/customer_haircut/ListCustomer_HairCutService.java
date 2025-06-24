@@ -6,9 +6,9 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.data.domain.Sort;
 
+import br.com.gabriel.barbershop_appointment_api.domain.Customer_HairCut;
 import br.com.gabriel.barbershop_appointment_api.dtos.CustomerResponseDTO;
 import br.com.gabriel.barbershop_appointment_api.dtos.Customer_HairCutResponseDTO;
-import br.com.gabriel.barbershop_appointment_api.models.Customer_HairCut;
 import br.com.gabriel.barbershop_appointment_api.repositories.Customer_HairCutRepository;
 import lombok.RequiredArgsConstructor;
 

@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.gabriel.barbershop_appointment_api.models.AvailableTime;
+import br.com.gabriel.barbershop_appointment_api.domain.AvailableTime;
 import br.com.gabriel.barbershop_appointment_api.services.available_time.ListAvailableTimesService;
 import lombok.RequiredArgsConstructor;
 

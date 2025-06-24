@@ -1,4 +1,4 @@
-package br.com.gabriel.barbershop_appointment_api.models;
+package br.com.gabriel.barbershop_appointment_api.domain;
 
 import java.util.UUID;
 
@@ -27,4 +27,7 @@ public class Customer {
 
     @Column(name = "customer_password", nullable = false)
     private String customerPassword;
+
+    @Column(name = "role", nullable = false)
+    private String customerRole = "customer";
 }

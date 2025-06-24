@@ -2,8 +2,8 @@ package br.com.gabriel.barbershop_appointment_api.mappers;
 
 import org.springframework.stereotype.Component;
 
+import br.com.gabriel.barbershop_appointment_api.domain.Customer;
 import br.com.gabriel.barbershop_appointment_api.dtos.CustomerDTO;
-import br.com.gabriel.barbershop_appointment_api.models.Customer;
 
 @Component
 public class CustomerMapper {

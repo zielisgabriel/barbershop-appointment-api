@@ -1,4 +1,4 @@
-package br.com.gabriel.barbershop_appointment_api.models;
+package br.com.gabriel.barbershop_appointment_api.domain;
 
 import java.math.BigDecimal;
 import java.util.UUID;

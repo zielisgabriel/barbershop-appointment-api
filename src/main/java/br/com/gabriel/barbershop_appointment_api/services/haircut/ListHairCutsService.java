@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import br.com.gabriel.barbershop_appointment_api.models.HairCut;
+import br.com.gabriel.barbershop_appointment_api.domain.HairCut;
 import br.com.gabriel.barbershop_appointment_api.repositories.HairCutRepository;
 import lombok.RequiredArgsConstructor;
 

@@ -4,9 +4,9 @@ import java.time.LocalDateTime;
 
 import org.springframework.stereotype.Component;
 
-import br.com.gabriel.barbershop_appointment_api.models.Customer;
-import br.com.gabriel.barbershop_appointment_api.models.Customer_HairCut;
-import br.com.gabriel.barbershop_appointment_api.models.HairCut;
+import br.com.gabriel.barbershop_appointment_api.domain.Customer;
+import br.com.gabriel.barbershop_appointment_api.domain.Customer_HairCut;
+import br.com.gabriel.barbershop_appointment_api.domain.HairCut;
 import lombok.RequiredArgsConstructor;
 
 @Component

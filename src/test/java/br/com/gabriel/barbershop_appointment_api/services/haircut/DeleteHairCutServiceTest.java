@@ -15,8 +15,8 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.test.context.ActiveProfiles;
 
+import br.com.gabriel.barbershop_appointment_api.domain.HairCut;
 import br.com.gabriel.barbershop_appointment_api.exceptions.HairCutNotFoundException;
-import br.com.gabriel.barbershop_appointment_api.models.HairCut;
 import br.com.gabriel.barbershop_appointment_api.repositories.HairCutRepository;
 
 @ActiveProfiles("test")

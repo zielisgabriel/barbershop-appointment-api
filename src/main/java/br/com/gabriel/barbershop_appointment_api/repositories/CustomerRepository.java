@@ -6,7 +6,7 @@ import java.util.UUID;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import br.com.gabriel.barbershop_appointment_api.models.Customer;
+import br.com.gabriel.barbershop_appointment_api.domain.Customer;
 
 @Repository
 public interface CustomerRepository extends JpaRepository<Customer, UUID> {

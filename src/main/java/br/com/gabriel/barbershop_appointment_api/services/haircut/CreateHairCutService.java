@@ -2,10 +2,10 @@ package br.com.gabriel.barbershop_appointment_api.services.haircut;
 
 import org.springframework.stereotype.Service;
 
+import br.com.gabriel.barbershop_appointment_api.domain.HairCut;
 import br.com.gabriel.barbershop_appointment_api.dtos.HairCutDTO;
 import br.com.gabriel.barbershop_appointment_api.exceptions.HairCutAlreadyExistsException;
 import br.com.gabriel.barbershop_appointment_api.mappers.HairCutMapper;
-import br.com.gabriel.barbershop_appointment_api.models.HairCut;
 import br.com.gabriel.barbershop_appointment_api.repositories.HairCutRepository;
 import lombok.RequiredArgsConstructor;
 
