@@ -1,5 +1,6 @@
 package br.com.gabriel.barbershop_appointment_api.config;
 
+import org.springframework.context.annotation.Profile;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Component;
 import lombok.RequiredArgsConstructor;
 
 @Component
+@Profile("default")
 @RequiredArgsConstructor
 public class BarbershopAppointmentAuthenticationProvider implements AuthenticationProvider {
     private final UserDetailsService userDetailsService;
