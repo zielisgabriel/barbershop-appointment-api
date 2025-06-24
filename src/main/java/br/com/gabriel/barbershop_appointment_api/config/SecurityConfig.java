@@ -8,6 +8,8 @@ import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
+import br.com.gabriel.barbershop_appointment_api.exceptions.BarbershopAuthenticationEntryPointHandler;
+
 import static org.springframework.security.config.Customizer.withDefaults;
 
 @Configuration
@@ -23,7 +25,7 @@ public class SecurityConfig {
             .authorizeHttpRequests(request -> request
                 .requestMatchers("/error", "/customer/create").permitAll()
                 .anyRequest().authenticated())
-            .httpBasic(withDefaults())
+            .httpBasic(hbc -> hbc.authenticationEntryPoint(new BarbershopAuthenticationEntryPointHandler()))
             .formLogin(withDefaults())
             .redirectToHttps(rtcc -> rtcc.disable())
             .build();
