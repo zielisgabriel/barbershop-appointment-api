@@ -24,7 +24,8 @@ public class SecurityConfigProd {
                     .changeSessionId()))
             .authorizeHttpRequests(request -> request
                 .requestMatchers("/error", "/customer/create").permitAll()
-                .anyRequest().authenticated())
+                .requestMatchers("/customer/list", "/customer/delete", "/customer/update", "/available_time/list", "/customer_haircut/create", "/customer_haircut/list", "/customer_haircut/delete", "/haircut/list").authenticated()
+                .requestMatchers("/available_time", "/available_time/create", "/available_time/delete", "/haircut/create", "/haircut/delete", "/haircut/update").hasRole("ADMIN"))
             .httpBasic(hbc -> hbc.authenticationEntryPoint(new BarbershopAuthenticationEntryPointHandler()))
             .formLogin(withDefaults())
             .redirectToHttps(withDefaults())
