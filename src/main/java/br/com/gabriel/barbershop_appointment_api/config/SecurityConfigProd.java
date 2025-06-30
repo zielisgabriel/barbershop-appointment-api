@@ -21,7 +21,9 @@ public class SecurityConfigProd {
             .csrf(csrf -> csrf.disable())
             .sessionManagement(smc -> smc
                 .sessionFixation(sfc -> sfc
-                    .changeSessionId()))
+                    .changeSessionId())
+                .invalidSessionUrl("/invalidSession")
+                .maximumSessions(1))
             .authorizeHttpRequests(request -> request
                 .requestMatchers("/error", "/customer/create").permitAll()
                 .requestMatchers("/customer/list", "/customer/delete", "/customer/update", "/available_time/list", "/customer_haircut/create", "/customer_haircut/list", "/customer_haircut/delete", "/haircut/list").authenticated()
