@@ -6,7 +6,7 @@ import java.util.UUID;
 import lombok.Data;
 
 @Data
-public class Customer_HairCutDTO {
+public class AppointmentTimeDTO {
     @org.hibernate.validator.constraints.UUID
     private UUID customerId;
 

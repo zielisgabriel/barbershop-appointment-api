@@ -15,12 +15,12 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "customer_haircut")
-public class Customer_HairCut {
+@Table(name = "appointment_time")
+public class AppointmentTime {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(name = "customer_haircut_id", nullable = false)
-    private UUID customerHaircutId;
+    @Column(name = "appointment_time_id", nullable = false)
+    private UUID appointmentTimeId;
 
     @ManyToOne
     @JoinColumn(name = "customer_id", nullable = false)

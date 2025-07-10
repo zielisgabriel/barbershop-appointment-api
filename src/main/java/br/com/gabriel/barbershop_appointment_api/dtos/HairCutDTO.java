@@ -15,6 +15,6 @@ public class HairCutDTO {
     @Max(value = 1000, message = "O preço deve ser menor ou igual a 1000")
     BigDecimal hairCutPrice;
 
-    @Size(min = 3, max = 100, message = "A descrição deve ter entre 3 e 100 caracteres")
+    @Size(min = 3, max = 20, message = "A descrição deve ter entre 3 e 20 caracteres")
     String hairCutDescription;
 }

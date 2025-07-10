@@ -1,4 +1,4 @@
-package br.com.gabriel.barbershop_appointment_api.services.customer_haircut;
+package br.com.gabriel.barbershop_appointment_api.services.appointment_time;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
@@ -6,47 +6,47 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 import br.com.gabriel.barbershop_appointment_api.domain.Customer;
-import br.com.gabriel.barbershop_appointment_api.domain.Customer_HairCut;
+import br.com.gabriel.barbershop_appointment_api.domain.AppointmentTime;
 import br.com.gabriel.barbershop_appointment_api.domain.HairCut;
-import br.com.gabriel.barbershop_appointment_api.dtos.Customer_HairCutDTO;
+import br.com.gabriel.barbershop_appointment_api.dtos.AppointmentTimeDTO;
 import br.com.gabriel.barbershop_appointment_api.exceptions.HairCutNotFoundException;
 import br.com.gabriel.barbershop_appointment_api.exceptions.InvalidDateTimeException;
 import br.com.gabriel.barbershop_appointment_api.exceptions.TimeNotFoundException;
 import br.com.gabriel.barbershop_appointment_api.exceptions.UserAlreadyExistsInAppointmentTimeListException;
 import br.com.gabriel.barbershop_appointment_api.exceptions.CustomerAlreadyHasAppointmentException;
 import br.com.gabriel.barbershop_appointment_api.exceptions.UserNotFoundException;
-import br.com.gabriel.barbershop_appointment_api.mappers.Customer_HairCutMapper;
+import br.com.gabriel.barbershop_appointment_api.mappers.AppointmentTimeMapper;
 import br.com.gabriel.barbershop_appointment_api.repositories.AvailableTimeRepository;
 import br.com.gabriel.barbershop_appointment_api.repositories.CustomerRepository;
-import br.com.gabriel.barbershop_appointment_api.repositories.Customer_HairCutRepository;
+import br.com.gabriel.barbershop_appointment_api.repositories.AppointmentTimeRepository;
 import br.com.gabriel.barbershop_appointment_api.repositories.HairCutRepository;
 import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-public class CreateCustomer_HairCutService {
-    private final Customer_HairCutRepository customer_HairCutRepository;
+public class CreateAppointmentTimeService {
+    private final AppointmentTimeRepository customer_HairCutRepository;
     private final CustomerRepository customerRepository;
     private final HairCutRepository hairCutRepository;
-    private final Customer_HairCutMapper customer_HairCutMapper;
+    private final AppointmentTimeMapper customer_HairCutMapper;
     private final AvailableTimeRepository availableTimeRepository;
 
-    public void execute(Customer_HairCutDTO customer_HairCutDTO) {
-        this.ensureValidDateTime(customer_HairCutDTO.getAppointmentDateTime());
+    public void execute(AppointmentTimeDTO appointmentTimeDTO) {
+        this.ensureValidDateTime(appointmentTimeDTO.getAppointmentDateTime());
 
         Customer customer = this.customerRepository
-            .findByCustomerId(customer_HairCutDTO.getCustomerId())
+            .findByCustomerId(appointmentTimeDTO.getCustomerId())
             .orElseThrow(() -> new UserNotFoundException());
 
         this.ensureCustomerIsNotInList(customer);
 
-        this.ensureAppointmentTimeIsAvailable(customer_HairCutDTO.getAppointmentDateTime());
+        this.ensureAppointmentTimeIsAvailable(appointmentTimeDTO.getAppointmentDateTime());
 
         HairCut hairCut = this.hairCutRepository
-            .findByHairCutId(customer_HairCutDTO.getHaircutId())
+            .findByHairCutId(appointmentTimeDTO.getHaircutId())
             .orElseThrow(() -> new HairCutNotFoundException());
 
-        Customer_HairCut customer_HairCut = customer_HairCutMapper.map(customer, hairCut, customer_HairCutDTO.getAppointmentDateTime());
+        AppointmentTime customer_HairCut = customer_HairCutMapper.map(customer, hairCut, appointmentTimeDTO.getAppointmentDateTime());
 
         this.customer_HairCutRepository.save(customer_HairCut);
     }
@@ -58,6 +58,10 @@ public class CreateCustomer_HairCutService {
             throw new InvalidDateTimeException();
         }
 
+        if (appointmentDateTime.isAfter(currentDateTime.plusMonths(1))) {
+            throw new InvalidDateTimeException();
+        }
+
         boolean isExistsTime = this.availableTimeRepository.existsByTime(appointmentDateTime.toLocalTime());
         if (!isExistsTime) {
             throw new TimeNotFoundException();
@@ -65,14 +69,14 @@ public class CreateCustomer_HairCutService {
     }
 
     private void ensureCustomerIsNotInList(Customer customer) {
-        Optional<Customer_HairCut> customerInCustomer_HairCutList = this.customer_HairCutRepository.findByCustomer(customer);
-        if (customerInCustomer_HairCutList.isPresent()) {
+        Optional<AppointmentTime> customerInAppointmentTimeList = this.customer_HairCutRepository.findByCustomer(customer);
+        if (customerInAppointmentTimeList.isPresent()) {
             throw new CustomerAlreadyHasAppointmentException();
         }
     }
 
     private void ensureAppointmentTimeIsAvailable(LocalDateTime appointmentDateTime) {
-        Optional<Customer_HairCut> customer_HairCutWithSameDate = this.customer_HairCutRepository
+        Optional<AppointmentTime> customer_HairCutWithSameDate = this.customer_HairCutRepository
             .findByAppointmentDateTime(appointmentDateTime);
         if (customer_HairCutWithSameDate.isPresent()) {
             throw new UserAlreadyExistsInAppointmentTimeListException();

@@ -1,5 +1,7 @@
 package br.com.gabriel.barbershop_appointment_api.controllers.available_time;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,7 +16,8 @@ public class CreateAvailableTimeController {
     private final CreateAvailableTimeService createAvailableTimeService;
 
     @PostMapping("/available_time/create")
-    public void create(@RequestBody AvailableTimeDTO availableTimeDTO) {
+    public ResponseEntity<Void> create(@RequestBody AvailableTimeDTO availableTimeDTO) {
         this.createAvailableTimeService.execute(availableTimeDTO);
+        return new ResponseEntity<Void>(HttpStatus.CREATED);
     }
 }
